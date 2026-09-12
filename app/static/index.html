@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="AI-powered job intelligence and career copilot.">
+
+  <title>Career Copilot</title>
+
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+
+  <div class="app-shell">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+      <a class="brand" href="#overview" aria-label="Career Copilot home">
+        <span class="brand-mark">✦</span>
+
+        <span>
+          Career<span>Copilot</span>
+        </span>
+      </a>
+
+      <nav aria-label="Dashboard navigation">
+
+        <a class="nav-link active" href="#overview" data-section="overview">
+          Overview
+        </a>
+
+        <a class="nav-link" href="#jobs" data-section="jobs">
+          Job explorer
+        </a>
+
+        <a class="nav-link" href="#insights" data-section="insights">
+          Career insights
+        </a>
+
+        <a class="nav-link" href="#market" data-section="market">
+          Market skills
+        </a>
+
+        <a class="nav-link" href="#analytics" data-section="analytics">
+          Application analytics
+        </a>
+
+      </nav>
+
+      <div class="sidebar-tip">
+
+        <strong>Tip</strong>
+
+        <p>
+          Keep your application status current
+          to make your career pipeline meaningful.
+        </p>
+
+      </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+      <!-- ===================================================
+           TOP BAR
+      ==================================================== -->
+
+      <header class="topbar">
+
+        <div>
+
+          <p class="eyebrow">
+            AI JOB INTELLIGENCE
+          </p>
+
+          <h1 id="page-title">
+            Your career command center
+          </h1>
+
+        </div>
+
+        <div class="api-status" id="api-status">
+          <i></i>
+          <span>Checking API…</span>
+        </div>
+
+      </header>
+
+
+      <!-- ===================================================
+           OVERVIEW
+      ==================================================== -->
+
+      <section class="page-section active" id="overview">
+
+        <div class="hero-card">
+
+          <div>
+
+            <p class="eyebrow">
+              CANDIDATE PROFILE
+            </p>
+
+            <h2 id="candidate-name">
+              Loading your profile…
+            </h2>
+
+            <p id="candidate-meta">
+              Preparing your career intelligence.
+            </p>
+
+          </div>
+
+          <button class="primary-button" id="refresh-intelligence">
+            Refresh insights
+          </button>
+
+        </div>
+
+
+        <!-- Overview statistics -->
+
+        <div class="stats-grid" id="stats-grid">
+
+          <article class="stat-card">
+
+            <span>
+              Jobs tracked
+            </span>
+
+            <strong id="stat-jobs">
+              —
+            </strong>
+
+            <small>
+              active opportunities
+            </small>
+
+          </article>
+
+
+          <article class="stat-card">
+
+            <span>
+              Ready to apply
+            </span>
+
+            <strong id="stat-ready">
+              —
+            </strong>
+
+            <small>
+              recommended matches
+            </small>
+
+          </article>
+
+
+          <article class="stat-card">
+
+            <span>
+              In interviews
+            </span>
+
+            <strong id="stat-interview">
+              —
+            </strong>
+
+            <small>
+              active applications
+            </small>
+
+          </article>
+
+
+          <article class="stat-card">
+
+            <span>
+              Readiness score
+            </span>
+
+            <strong id="stat-readiness">
+              —
+            </strong>
+
+            <small>
+              based on your profile
+            </small>
+
+          </article>
+
+        </div>
+
+
+        <!-- Top opportunities -->
+
+        <div class="dashboard-grid">
+
+          <article class="panel panel-wide">
+
+            <div class="panel-heading">
+
+              <div>
+
+                <p class="eyebrow">
+                  TOP OPPORTUNITIES
+                </p>
+
+                <h3>
+                  Best job matches
+                </h3>
+
+              </div>
+
+              <a href="#jobs" class="text-link" data-go="jobs">
+                See all jobs →
+              </a>
+
+            </div>
+
+            <div class="list" id="top-matches">
+
+              <div class="empty-state">
+                Loading opportunities…
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- High-value skills -->
+
+          <article class="panel">
+
+            <div class="panel-heading">
+
+              <div>
+
+                <p class="eyebrow">
+                  FOCUS AREAS
+                </p>
+
+                <h3>
+                  High-value skills
+                </h3>
+
+              </div>
+
+            </div>
+
+            <div class="skill-list" id="top-skills">
+
+              <div class="empty-state">
+                Loading skills…
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           JOB EXPLORER
+      ==================================================== -->
+
+      <section class="page-section" id="jobs">
+
+        <div class="section-heading">
+
+          <div>
+
+            <p class="eyebrow">
+              OPPORTUNITIES
+            </p>
+
+            <h2>
+              Job explorer
+            </h2>
+
+            <p>
+              Search, compare, and keep your
+              application pipeline current.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- Search -->
+
+        <form class="search-bar" id="job-search">
+
+          <input id="search-title" placeholder="Job title, e.g. Python" aria-label="Job title">
+
+          <input id="search-location" placeholder="Location, e.g. Bengaluru" aria-label="Location">
+
+          <input id="search-salary" type="number" min="0" step="0.5" placeholder="Min. LPA"
+            aria-label="Minimum salary in LPA">
+
+          <button class="primary-button" type="submit">
+            Search jobs
+          </button>
+
+          <button class="secondary-button" type="button" id="clear-search">
+            Clear
+          </button>
+
+        </form>
+
+
+        <!-- Job results -->
+
+        <div class="jobs-grid" id="job-list">
+
+          <div class="empty-state">
+            Loading jobs…
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           CAREER INSIGHTS
+      ==================================================== -->
+
+      <section class="page-section" id="insights">
+
+        <div class="section-heading">
+
+          <div>
+
+            <p class="eyebrow">
+              PERSONALISED ANALYSIS
+            </p>
+
+            <h2>
+              Career insights
+            </h2>
+
+            <p>
+              Recommendations and gaps based on
+              your skills and active jobs.
+            </p>
+
+          </div>
+
+          <button class="primary-button" id="reload-insights">
+            Refresh insights
+          </button>
+
+        </div>
+
+
+        <div class="insights-grid">
+
+
+          <!-- Recommendations -->
+
+          <article class="panel">
+
+            <div class="panel-heading">
+
+              <div>
+
+                <p class="eyebrow">
+                  RECOMMENDATIONS
+                </p>
+
+                <h3>
+                  Where to apply
+                </h3>
+
+              </div>
+
+            </div>
+
+            <div class="list" id="recommendations">
+
+              <div class="empty-state">
+                Loading recommendations…
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- Skill gaps -->
+
+          <article class="panel">
+
+            <div class="panel-heading">
+
+              <div>
+
+                <p class="eyebrow">
+                  SKILL GAPS
+                </p>
+
+                <h3>
+                  What to learn next
+                </h3>
+
+              </div>
+
+            </div>
+
+            <div class="skill-list" id="skill-gaps">
+
+              <div class="empty-state">
+                Loading gaps…
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- Career advice -->
+
+          <article class="panel full-width">
+
+            <div class="panel-heading">
+
+              <div>
+
+                <p class="eyebrow">
+                  CAREER ADVICE
+                </p>
+
+                <h3>
+                  Your action plan
+                </h3>
+
+              </div>
+
+            </div>
+
+            <div id="career-advice" class="advice-content">
+
+              <div class="empty-state">
+                Loading action plan…
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           MARKET INTELLIGENCE
+      ==================================================== -->
+
+      <section class="page-section" id="market">
+
+        <div class="section-heading">
+
+          <div>
+
+            <p class="eyebrow">
+              JOB MARKET SIGNALS
+            </p>
+
+            <h2>
+              Skill demand
+            </h2>
+
+            <p>
+              Skills requested across the jobs
+              currently in your database.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="market-table panel">
+
+          <div id="market-skills">
+
+            <div class="empty-state">
+              Loading market data…
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           APPLICATION ANALYTICS
+      ==================================================== -->
+
+      <section class="page-section" id="analytics">
+
+        <div class="section-heading">
+
+          <div>
+
+            <p class="eyebrow">
+              APPLICATION PIPELINE
+            </p>
+
+            <h2>
+              Application analytics
+            </h2>
+
+            <p>
+              Understand how your job-search pipeline
+              is progressing from application to offer.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- Application status cards -->
+
+        <div class="stats-grid analytics-stats" id="application-stats">
+
+          <article class="stat-card">
+
+            <span>
+              Not applied
+            </span>
+
+            <strong id="analytics-not-applied">
+              —
+            </strong>
+
+            <small>
+              opportunities waiting
+            </small>
+
+          </article>
+
+
+          <article class="stat-card">
+
+            <span>
+              Applied
+            </span>
+
+            <strong id="analytics-applied">
+              —
+            </strong>
+
+            <small>
+              submitted applications
+            </small>
+
+          </article>
+
+
+          <article class="stat-card">
+
+            <span>
+              Interviews
+            </span>
+
+            <strong id="analytics-interview">
+              —
+            </strong>
+
+            <small>
+              active interview pipeline
+            </small>
+
+          </article>
+
+
+          <article class="stat-card">
+
+            <span>
+              Offers
+            </span>
+
+            <strong id="analytics-offer">
+              —
+            </strong>
+
+            <small>
+              successful outcomes
+            </small>
+
+          </article>
+
+        </div>
+
+
+        <!-- Application funnel -->
+
+        <div class="dashboard-grid">
+
+
+          <article class="panel panel-wide">
+
+            <div class="panel-heading">
+
+              <div>
+
+                <p class="eyebrow">
+                  PIPELINE
+                </p>
+
+                <h3>
+                  Application funnel
+                </h3>
+
+              </div>
+
+            </div>
+
+
+            <div class="application-funnel" id="application-funnel">
+
+              <div class="funnel-step">
+
+                <span class="funnel-label">
+                  Not Applied
+                </span>
+
+                <strong id="funnel-not-applied">
+                  —
+                </strong>
+
+              </div>
+
+
+              <div class="funnel-arrow">
+                →
+              </div>
+
+
+              <div class="funnel-step">
+
+                <span class="funnel-label">
+                  Applied
+                </span>
+
+                <strong id="funnel-applied">
+                  —
+                </strong>
+
+              </div>
+
+
+              <div class="funnel-arrow">
+                →
+              </div>
+
+
+              <div class="funnel-step">
+
+                <span class="funnel-label">
+                  Interview
+                </span>
+
+                <strong id="funnel-interview">
+                  —
+                </strong>
+
+              </div>
+
+
+              <div class="funnel-arrow">
+                →
+              </div>
+
+
+              <div class="funnel-step">
+
+                <span class="funnel-label">
+                  Offer
+                </span>
+
+                <strong id="funnel-offer">
+                  —
+                </strong>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- Rejection information -->
+
+          <article class="panel">
+
+            <div class="panel-heading">
+
+              <div>
+
+                <p class="eyebrow">
+                  OUTCOMES
+                </p>
+
+                <h3>
+                  Pipeline health
+                </h3>
+
+              </div>
+
+            </div>
+
+
+            <div class="analytics-summary">
+
+              <div class="analytics-row">
+
+                <span>
+                  Rejected
+                </span>
+
+                <strong id="analytics-rejected">
+                  —
+                </strong>
+
+              </div>
+
+
+              <div class="analytics-row">
+
+                <span>
+                  Applications
+                </span>
+
+                <strong id="analytics-total-applied">
+                  —
+                </strong>
+
+              </div>
+
+
+              <div class="analytics-row">
+
+                <span>
+                  Interview conversion
+                </span>
+
+                <strong id="analytics-interview-rate">
+                  —
+                </strong>
+
+              </div>
+
+
+              <div class="analytics-row">
+
+                <span>
+                  Offer conversion
+                </span>
+
+                <strong id="analytics-offer-rate">
+                  —
+                </strong>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+
+        <!-- Career pipeline insight -->
+
+        <article class="panel full-width analytics-insight-panel">
+
+          <div class="panel-heading">
+
+            <div>
+
+              <p class="eyebrow">
+                CAREER SIGNAL
+              </p>
+
+              <h3>
+                What your application data means
+              </h3>
+
+            </div>
+
+          </div>
+
+
+          <div class="advice-content" id="analytics-insight">
+
+            <div class="empty-state">
+              Building application insights…
+            </div>
+
+          </div>
+
+        </article>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <!-- =====================================================
+       TOAST
+  ====================================================== -->
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+
+  <!-- =====================================================
+       APPLICATION JAVASCRIPT
+  ====================================================== -->
+
+  <script src="/static/app.js"></script>
+
+</body>
+
+</html>

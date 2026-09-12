@@ -1,0 +1,38 @@
+[
+    {
+        "title": "Python Backend Developer",
+        "company": "Tech Solutions",
+        "location": "Bengaluru",
+        "salary": "\u00e2\u201a\u00b96 LPA",
+        "description": "Develop backend APIs using Python and FastAPI.",
+        "job_id": 1,
+        "salary_lpa": 6.0,
+        "application_status": "Applied",
+        "application_date": "2026-09-05",
+        "application_notes": "Applied through company careers page"
+    },
+    {
+        "title": "Data Analyst",
+        "company": "Analytics Corp",
+        "location": "Mangaluru",
+        "salary": "\u00e2\u201a\u00b95 LPA",
+        "description": "Analyze business data using Python, SQL and Pandas.",
+        "job_id": 2,
+        "salary_lpa": 5.0,
+        "application_status": "Not Applied",
+        "application_date": null,
+        "application_notes": ""
+    },
+    {
+        "title": "Machine Learning Engineer",
+        "company": "AI Systems",
+        "location": "Bengaluru",
+        "salary": "\u00e2\u201a\u00b98 LPA",
+        "description": "Build machine learning models using Python and scikit-learn.",
+        "job_id": 3,
+        "salary_lpa": 8.0,
+        "application_status": "Not Applied",
+        "application_date": null,
+        "application_notes": ""
+    }
+]
