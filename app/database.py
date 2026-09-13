@@ -7,6 +7,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+
 DB_CONFIG = {
     "host": os.getenv("DB_HOST"),
     "dbname": os.getenv("DB_NAME"),
@@ -17,4 +20,7 @@ DB_CONFIG = {
 
 
 def get_connection():
+    if DATABASE_URL:
+        return psycopg.connect(DATABASE_URL)
+
     return psycopg.connect(**DB_CONFIG)
