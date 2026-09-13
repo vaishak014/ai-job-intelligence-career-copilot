@@ -1,3 +1,5 @@
+from functools import lru_cache
+
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -5,6 +7,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 MODEL_NAME = "all-MiniLM-L6-v2"
 
 
+@lru_cache(maxsize=1)
 def load_embedding_model():
     return SentenceTransformer(MODEL_NAME)
 
